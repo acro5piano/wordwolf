@@ -22,15 +22,16 @@ const words = [
   ['スマートフォン', 'パソコン'],
 ]
 
-const targetWord = words.sort(() => random() - random())[0]
+const [civilWord, wolfWord] = words.sort(() => random() - random())[0]
 
 const wolfIndex = Math.floor(random() * 100) % playerCount
-
-const civilWord = targetWord[0]
-const wolfWord = targetWord[1]
 
 if (wolfIndex == playerIndex) {
   document.write(wolfWord)
 } else {
   document.write(civilWord)
 }
+
+Array.from({ length: playerCount }, (_, i) => {
+  document.write(i + 1)
+})
